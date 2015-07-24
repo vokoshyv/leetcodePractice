@@ -3,32 +3,24 @@
  * @return {number}
  */
 
-var hasNoRepeats = function(input){
-  var work = {};
-  for (var i = 0; i < input.length; i++){
-    if (work[input[i]]){
-      return false;
-    }else {
-      work[input[i]] = true;
-    }
-  }
-  return true;
-}
-
 var lengthOfLongestSubstring = function(s) {
-  var work = [];
+  var occurred = {};
+  var maxLength = 0;
+  var currLength = 0;
+
   for (var i = 0; i < s.length; i++){
-    for (var j = i+1; j < s.length+1; j++){
-      work.push(s.slice(i, j));
+    if (occurred[s[i]] !== undefined){
+      maxLength = Math.max(maxLength, currLength);
+      currLength = i - occurred[s[i]]-1;
+      var temp = i;
+      i = occurred[s[i]] + 1;
+      occurred = {};
+      occurred[s[i]] = temp;
+    }else {
+      currLength++;
+      occurred[s[i]] = i;
+      maxLength = Math.max(maxLength, currLength);
     }
   }
-
-  var result = 0;
-
-  work = work.map(function(value){
-    if (hasNoRepeats(value)){
-      result = Math.max(value.length, result);
-    }
-  });
-  return result;
+  return maxLength;
 };
