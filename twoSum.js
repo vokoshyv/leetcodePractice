@@ -4,16 +4,11 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-  var result;
-  for (var i = 0; i < nums.length-1; i++){
-    for (var j = i+1; j < nums.length; j++){
-      if (nums[j] > target){
-        break;
-      }
-      if (nums[i] + nums[j] === target){
-        result = [i+1, j+1];
-      }
+  var work = {};
+  for (var i = 0; i < nums.length; i++){
+    if (work[target - nums[i]] !== undefined){
+      return [work[target-nums[i]]+1, i+1];
     }
+    work[nums[i]] = i;
   }
-  return result;
 };
