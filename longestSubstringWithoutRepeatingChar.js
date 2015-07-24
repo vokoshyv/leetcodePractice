@@ -18,8 +18,8 @@ var lengthOfLongestSubstring = function(s) {
     }else {
       currLength++;
       occurred[s[i]] = i;
-      maxLength = Math.max(maxLength, currLength);
     }
   }
+  maxLength = Math.max(maxLength, currLength);
   return maxLength;
 };
