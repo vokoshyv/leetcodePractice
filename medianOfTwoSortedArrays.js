@@ -4,5 +4,8 @@
  * @return {number}
  */
 var findMedianSortedArrays = function(nums1, nums2) {
-    // use merge sort to combine the two tables. 
+  var nums1Index = 0;
+  var nums2Index = 0;
+  var work = [];
+  
 };
