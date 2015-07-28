@@ -3,9 +3,10 @@
  * @return {number[][]}
  */
 var threeSum = function(nums) {
-  var first = {};
-  var second = {};
-  for (var i = 0; i < nums.length; i++){
-    
+  var occurred = {};
+  for (var i = 0; i < nums.length-1; i++){
+    for (var j = i+1; j < nums.length; j++){
+      
+    }
   }
 };
