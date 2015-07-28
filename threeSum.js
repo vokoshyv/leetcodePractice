@@ -13,8 +13,7 @@ var threeSum = function(nums) {
     for (var j = i+1; j < nums.length; j++){
       temp = - nums[i] - nums[j];
       if (occurred[temp]){
-        current = [];
-        current.push(nums[i], nums[j], temp);
+        current = [nums[i], nums[j], temp];
         current.sort(function(a, b){
           return a-b;
         })
