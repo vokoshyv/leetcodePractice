@@ -100,7 +100,7 @@ isValidThree(largerTest);
 console.timeEnd('c');
 
 
-// It's all about what your goal is...
+// When thinking about code cleaniness versus performance, it's all about what your goal is...
 
 
 
