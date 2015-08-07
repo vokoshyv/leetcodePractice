@@ -23,11 +23,12 @@ var combinationSum3 = function(k, n) {
     }
 
     for (var i = 0; i < pullFrom.length; i++){
-      var temp = pullFrom.splice(i, 1)[0];
-      current.push(temp);
+      var temp = pullFrom.splice(i, 1);
+      console.log(temp[0]);
+      current.push(temp[0]);
       findWorkingTotals(current, pullFrom, depth + 1);
       current.pop();
-      pullFrom.splice(i, 0, temp);
+      pullFrom.splice(i, 0, temp[0]);
     }
 
 
