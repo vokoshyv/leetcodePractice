@@ -11,10 +11,14 @@ var addThemUp = function(array){
 var combinationSum3 = function(k, n) {
   var choices = [9, 8, 7, 6, 5, 4, 3, 2, 1]
   var results = [];
+  var already = {};
 
   var findWorkingTotals = function(current, pullFrom, depth){
     if (depth === k && addThemUp(current) === n){
-      results.push(current.sort(function(a, b){return a-b}).slice());
+      if (already[current.slice().sort().join('')] === undefined){
+        results.push(current.slice().sort());
+      }
+      already[current.slice().sort().join('')] = true;
       return;
     }else if (depth > k){
       return;
@@ -24,7 +28,6 @@ var combinationSum3 = function(k, n) {
 
     for (var i = 0; i < pullFrom.length; i++){
       var temp = pullFrom.splice(i, 1);
-      console.log(temp[0]);
       current.push(temp[0]);
       findWorkingTotals(current, pullFrom, depth + 1);
       current.pop();
@@ -37,5 +40,3 @@ var combinationSum3 = function(k, n) {
   findWorkingTotals([], choices, 0);
   return results;
 };
-
-combinationSum3(3, 7);
