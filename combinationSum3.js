@@ -9,11 +9,11 @@ var addThemUp = function(array){
 }
 
 var combinationSum3 = function(k, n) {
-  var choices = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  var choices = [9, 8, 7, 6, 5, 4, 3, 2, 1]
   var results = [];
 
   var findWorkingTotals = function(current, pullFrom, depth){
-    if (depth === k && addThemUp(current) === target){
+    if (depth === k && addThemUp(current) === n){
       results.push(current.sort(function(a, b){return a-b}).slice());
       return;
     }else if (depth > k){
@@ -23,9 +23,18 @@ var combinationSum3 = function(k, n) {
     }
 
     for (var i = 0; i < pullFrom.length; i++){
-      
+      var temp = pullFrom.splice(i, 1)[0];
+      current.push(temp);
+      findWorkingTotals(current, pullFrom, depth + 1);
+      current.pop();
+      pullFrom.splice(i, 0, temp);
     }
 
 
   }
+
+  findWorkingTotals([], choices, 0);
+  return results;
 };
+
+combinationSum3(3, 7);
