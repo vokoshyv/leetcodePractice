@@ -12,6 +12,7 @@ var numIslands = function(grid) {
   var islandCount = 0;
 
   var traverseTheMap = function(xCoor, yCoor){
+    //base case when traversing the traveledTo matrix
     if (traveledTo[yCoor][xCoor] === 1){
       return;
     }
