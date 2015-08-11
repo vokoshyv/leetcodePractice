@@ -65,7 +65,3 @@ var searchMatrix = function(matrix, target) {
   var check = searchFirstCol(matrix, target);
   return (check === true)? true : (check > -1)? searchRow(matrix[check], target) : false;
 };
-
-// searchRow([1, 2, 4, 5, 6, 7, 8, 9], 9);
-
-// searchFirstCol(test, 10);
