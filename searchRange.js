@@ -39,11 +39,7 @@ var searchRange = function(nums, target) {
   }
   var rightBeforeEnd = start;
   var rightAfterEnd = end;
-
-  console.log(rightBeforeStart);
-  console.log(rightAfterStart);
-  console.log(rightBeforeEnd);
-  console.log(rightAfterEnd);
+  
   if (nums[rightAfterStart] !== target && nums[rightBeforeEnd] !== target){
     return [-1, -1];
   }else if (rightBeforeStart === rightBeforeEnd && rightAfterStart === rightAfterEnd && nums.length !== 2){
