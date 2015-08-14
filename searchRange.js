@@ -3,6 +3,10 @@
  * @param {number} target
  * @return {number[]}
  */
+
+// Since the problem stated that it's looking for N(log(n))
+// time complexity, it's gotta be binary search
+
 var searchRange = function(nums, target) {
   var lowerTarget = target - 0.5;
   var higherTarget = target + 0.5;
