@@ -43,23 +43,24 @@ var numbersToWords = {
   90: 'ninety',
 };
 var numbersToPlace = {
-  10: 'ten',
-  100: 'hundred',
-  1000: 'thousand',
-  1000000: 'million',
-  1000000000: 'billion',
-  1000000000000: 'trillion',
-  1000000000000000: 'quadrillion',
-  1000000000000000000: 'quintillion',
+  // 10: 'ten',
+  // 100: 'hundred',
+  1: 'thousand',
+  2: 'million',
+  3: 'billion',
+  4: 'trillion',
+  5: 'quadrillion',
+  6: 'quintillion',
 };
 
 Number.prototype.toEnglish = function () {
 	var work = this.toString();
-
 	var chunk = '';
-
 	var nextWork = [];
 
+	if (this.valueOf() === 0) {return 'zero'};
+
+	// create the chunks of three numbers
 	for (var i = work.length-1; i > -1; i--){
 		chunk = work[i] + chunk;
 		if (chunk.length === 3){
@@ -71,8 +72,8 @@ Number.prototype.toEnglish = function () {
 	if (chunk.length > 0){
 		nextWork.push(chunk);
 	}
-	console.log(nextWork);
 
+	// function that gives back the English result for three number string
 	var workWithThree = function(input){
 		var work = '';
 		var numerical = Number(input);
@@ -83,14 +84,44 @@ Number.prototype.toEnglish = function () {
 		if (numerical > 99){
 			work += (numbersToWords[Math.floor(numerical / 100)] + ' ' + 'hundred')
 		}
-		if (numerical < 21){
-			work += (work.length === 0)? numbersToWords[numerical] : ' ' + numbersToWords[numerical % 100];
+		if (numerical % 100 < 21 && numerical % 100 > 0){
+			work += (work.length === 0)? numbersToWords[numerical % 100] : ' ' + numbersToWords[numerical % 100];
+		} 
+		if (numerical % 100 < 100 && numerical % 100 > 20){
+			if (numerical % 10 === 0){
+				work += (work.length === 0)? numbersToWords[numerical % 100] : ' ' + numbersToWords[numerical % 100];
+			} else {
+				work += (work.length === 0)? numbersToWords[Math.floor(numerical % 100 / 10) * 10] + '-' + numbersToWords[numerical % 10] : ' ' + numbersToWords[Math.floor(numerical % 100 / 10) * 10] + '-' + numbersToWords[numerical % 10];
+			}
 		}
-		console.log(work);
+		return work;
 	}
 
+	// changes all of the three number strings to English
+	nextWork = nextWork.map(function(value){
+		return workWithThree(value);
+	})
+
+	console.log(nextWork);
+
+	var result = nextWork[0];
+
+	// combines English words together, adding in number places as appropriate 
+	for (var i = 1; i < nextWork.length; i++){
+		if (nextWork[i].length === 0){
+			continue;
+		}
+		if (nextWork[i].length > 0){
+			result = nextWork[i] + ' ' + numbersToPlace[i] + ' ' + result;
+		}
+	}
+
+	return result;
 };
 
 
+// for (var i = 0; i < 1001; i++){
+// 	console.log((i).toEnglish());
+// }
 
 
