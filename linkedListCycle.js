@@ -53,10 +53,39 @@ var hasCycle = function(head) {
 
     // 3) METHOD 3
 	
-	
+	if (head === null){
+		return false;
+	} else if (head.next === null){
+		return false;
+	}
 
+	var start = head;
 
+	while (head !== null){
+		head = head.next;
+		if (head = start){
+			return true;
+		}
+	}
+	return false;
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
