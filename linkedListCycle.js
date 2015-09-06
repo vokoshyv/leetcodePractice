@@ -11,5 +11,17 @@
  * @return {boolean}
  */
 var hasCycle = function(head) {
-    
+    console.log(head);
+    var counter = 0;
+    while (head !== null){
+        if (head === null){
+            return false;
+        }
+        head = head.next;
+        counter++;
+        if (counter > 1000000){
+            return true;
+        }
+    }
+    return false;
 };
