@@ -11,4 +11,7 @@
  */
 var binaryTreePaths = function(root) {
   var results = [];
+
+  
+  return results;
 };
