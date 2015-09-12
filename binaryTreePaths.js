@@ -10,7 +10,6 @@
  * @return {string[]}
  */
 var binaryTreePaths = function(root) {
-  console.log(JSON.stringify(root));
   var preResults = [];
 
   var findPaths = function(prevNode, buildUp){
@@ -30,8 +29,6 @@ var binaryTreePaths = function(root) {
     buildUp.pop();
   }
   findPaths(root, []);
-
-  console.log(preResults);
   
   var results = [];
   for (var i = 0; i < preResults.length; i++){
