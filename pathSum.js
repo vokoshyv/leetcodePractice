@@ -18,18 +18,23 @@ var hasPathSum = function(root, sum) {
   }
 
   var search = function(currentSum, currentNode){
-    if (currentSum === sum && currentNode === null){
-      result = true;
+    if (currentNode === null){
+      if (currentSum === sum){
+        result = true;
+      }
       return;
-    } else if (currentNode === null){
-      return;
-    } else if (currentSum === sum && currentNode.right === null && currentNode.left === null){
-      result = true;
+    } else if (currentNode.right === null && currentNode.left === null){
+      currentSum += currentNode.val;
+      if (currentSum === sum){
+        result = true;
+      }
+      currentSum -= currentNode.val;
       return;
     }
 
     search(currentSum + currentNode.val, currentNode.right);
     search(currentSum + currentNode.val, currentNode.left);
+
   }
   search(0, root);
 
