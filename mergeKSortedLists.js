@@ -50,8 +50,7 @@ var mergeTwoSortedLists = function(list1, list2){
       work = work.next;
     }
   }
-
-
+  
   return root;
 } 
 
@@ -68,10 +67,3 @@ var mergeKLists = function(lists) {
   }
   return result;
 };
-
-var test = [{"val":1,"next":{"val":2,"next":{"val":2,"next":null}}},{"val":1,"next":{"val":1,"next":{"val":2,"next":null}}}];
-
-var oneList = {"val":13,"next":{"val":15,"next":{"val":21,"next":null}}};
-var twoList = {"val":1,"next":{"val":14,"next":{"val":20,"next":null}}};
-
-mergeTwoSortedLists(oneList, twoList);
