@@ -48,12 +48,12 @@ var maximalRectangle = function(matrix) {
 
 
 
-  console.log(topLeft);
-  console.log(bottomRight);
-  console.log(minRow);
-  console.log(maxRow);
-  console.log(minCol);
-  console.log(maxCol);
+  //console.log(topLeft);
+  //console.log(bottomRight);
+  //console.log(minRow);
+  //console.log(maxRow);
+  //console.log(minCol);
+  //console.log(maxCol);
 
   while (minRow <= maxRow || minCol <= maxCol){
     if (maxRow >= minRow){
