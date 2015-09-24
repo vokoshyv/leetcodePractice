@@ -16,6 +16,5 @@ var majorityElement = function(nums) {
     }
   })
 
-  console.log(greatest[greatest.length-1]);
   return greatest[greatest.length-1];
 };
