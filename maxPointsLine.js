@@ -20,13 +20,13 @@ var maxPoints = function(points) {
 
   for (var i = 0; i < points.length; i++){
     var toCompare = points[i];
-    slopes = 0;
+    slopes = [];
 
     for (var j = 0; j < points.length; j++){
       if (j === i){
         continue;
       }
-
+      slopes.push(getSlope(points[i], points[j]));
     }
   }
 
