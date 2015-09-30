@@ -10,10 +10,5 @@
  * @return {ListNode}
  */
 var reverseList = function(head) {
-  var temp = head;
-
-  while (temp.val !== null){
-    var toAttach = temp.next;
-    toAttach.nex
-  }
+    
 };
