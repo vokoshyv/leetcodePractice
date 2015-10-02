@@ -3,7 +3,7 @@
  * @return {number[][]}
  */
 
-// var testInput = [[2, 9, 10], [5, 12, 12], [3, 7, 15], [15, 20, 10], [19, 24, 8]];
+var testInput = [[2, 9, 10], [5, 12, 12], [3, 7, 15], [15, 20, 10], [19, 24, 8]];
 
 // var twoInput = [[2, 9, 10], [3, 7, 15]];
 
@@ -74,8 +74,6 @@ var getSkyline = function(buildings) {
     work.push(convertBuildingToSkyline(buildings[i]));
   }
 
-  console.log(work);
-
   var temp;
 
   while (work.length !== 1){
@@ -108,4 +106,4 @@ var getSkyline = function(buildings) {
   return result;
 };
 
-getSkyline(anotherInput);
+getSkyline(testInput);
