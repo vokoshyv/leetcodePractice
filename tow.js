@@ -7,6 +7,8 @@
 
 // var twoInput = [[2, 9, 10], [3, 7, 15]];
 
+var anotherInput = [[1,11,5], [2,6,7], [3,13,9], [12,7,16], [14,3,25], [19,18,22], [23,13,29], [24,4,28]]
+
 
 var convertBuildingToSkyline = function(dim){
   return [[dim[0], dim[2]], [dim[1], 0]];
@@ -19,6 +21,8 @@ var sortSkylines = function(skylines){
 }
 
 var combineSkylines = function(s1, s2){
+  s1 = sortSkylines(s1);
+  s2 = sortSkylines(s2);
   var currentHeight = 0;
   var s1Pointer = 0;
   var s2Pointer = 0;
@@ -70,6 +74,8 @@ var getSkyline = function(buildings) {
     work.push(convertBuildingToSkyline(buildings[i]));
   }
 
+  console.log(work);
+
   var temp;
 
   while (work.length !== 1){
@@ -98,5 +104,8 @@ var getSkyline = function(buildings) {
       result.push(work[i]);
     }
   }
+  console.log(result);
   return result;
 };
+
+getSkyline(anotherInput);
