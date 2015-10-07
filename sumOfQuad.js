@@ -22,6 +22,57 @@ var smallTestInput = [
   [ 8, 0, 2 ] 
 ];
 
+
+// YOUR WORK BELOW: 
+
+// class that holds the matrix
+var paintFile = function(matrix){
+
+}
+
+// function that returns sum of a region
+paintFile.prototype.getSumOfRegion = function(topLeft, bottomRight){
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ANSWER: 
+
 // paintFile class for constant-time region sums
 var paintFile = function(matrix){
   this.storage = [];
