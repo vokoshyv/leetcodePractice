@@ -16,6 +16,7 @@ var testInput = [
   [ 65, 70, 99, 42, 22, 32, 56, 36 ] 
 ];
 
+// smaller example input
 var smallTestInput = [ 
   [ 1, 5, 9 ], 
   [ 2, 8, 5 ], 
