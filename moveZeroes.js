@@ -4,10 +4,10 @@
  */
 var moveZeroes = function(nums) {
   nums.sort(function(a, b){
-    if (a === 0 && b !== 0){
+    if (a === 0){
       return 1;
     } else {
       return 0;
     }
-  })
+  });
 };
