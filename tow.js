@@ -96,6 +96,7 @@ var getSkyline = function(buildings) {
 
   var result = [];
 
+  // removes skyline points that have same height next to each other
   result.push(work[0]);
   for (var i = 1; i < work.length; i++){
     if (work[i-1][1] !== work[i][1]){
