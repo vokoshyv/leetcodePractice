@@ -16,6 +16,42 @@
   **********************************************************************/
  
 
+
+var powerSet = function(str){
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ************************************************ //
+
 var powerSet = function(str){
   var result = [];
 
@@ -34,8 +70,42 @@ var powerSet = function(str){
   return result;
 }
 
-// powerSet('aab');
+// ************************************************ //
 
+powerSet('abc');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ************************************************ //
 
 var powerSetDup = function(str){
   var result = [];
@@ -59,4 +129,6 @@ var powerSetDup = function(str){
   return result;
 }
 
-powerSetDup('aab');
+// ************************************************ //
+
+// powerSetDup('aab');
