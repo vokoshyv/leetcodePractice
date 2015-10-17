@@ -34,4 +34,29 @@ var powerSet = function(str){
   return result;
 }
 
-powerSet('abc');
+// powerSet('aab');
+
+
+var powerSetDup = function(str){
+  var result = [];
+  var lib = {};
+
+  var recurse = function(current, depth){
+    if (depth === str.length){
+      if (lib[current] === undefined){
+        lib[current] = true;
+        result.push(current);
+      } 
+      return;
+    }
+
+    recurse(current, depth + 1);
+    recurse(current + str[depth], depth + 1);
+  }
+
+  recurse("", 0)
+  console.log(result);
+  return result;
+}
+
+powerSetDup('aab');
