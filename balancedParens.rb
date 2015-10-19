@@ -1,3 +1,49 @@
+
+# Example:
+#   balancedParens('(');  // false
+#   balancedParens('()'); // true
+#   balancedParens(')(');  // false
+#   balancedParens('(())');  // true
+#
+# Example:
+#  balancedParens('[](){}'); // true
+#  balancedParens('[({})]');   // true
+#  balancedParens('[(]{)}'); // false
+
+# Example: 
+# balancedParens(' toot  = { 1395861439587: how? are you() }'); // true
+# balancedParens(' def great() { telescopes.awesome();'); // false
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def balancedParens(work)
   check = []
   forward_lib = {
@@ -32,21 +78,6 @@ def balancedParens(work)
   
   return true
 end
-
-# Example:
-#   balancedParens('(');  // false
-#   balancedParens('()'); // true
-#   balancedParens(')(');  // false
-#   balancedParens('(())');  // true
-#
-# Example:
-#  balancedParens('[](){}'); // true
-#  balancedParens('[({})]');   // true
-#  balancedParens('[(]{)}'); // false
-
-# Example: 
-# balancedParens(' toot  = { 1395861439587: how? are you() }'); // true
-# balancedParens(' def great() { telescopes.awesome();'); // false
 
 
 balancedParens('(())')
