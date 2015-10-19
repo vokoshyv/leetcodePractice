@@ -1,9 +1,13 @@
+
+
 var allAnagrams = function(input){
   var results = [];
+  // turn input into array
   work = input.split('');
 
+  // create recursive function
   var buildCombinations = function(buildUp, pullFrom){
-    if (buildUp.length === input.length){
+    if (pullFrom.length === 0){
       results.push(buildUp);
       return;
     }
@@ -15,9 +19,12 @@ var allAnagrams = function(input){
     }
   }
 
+  // call recursive function
   buildCombinations('', work);
+
+  // return results
   console.log(results);
   return results;
 }
 
-allAnagrams('abc');
+allAnagrams('abcc');
