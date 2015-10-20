@@ -47,9 +47,9 @@
 def balancedParens(work)
   check = []
   forward_lib = {
-    '(' => ')', 
-    '{' => '}', 
-    '[' => ']' 
+    '(' => true, 
+    '{' => true,  
+    '[' => true 
   }
   back_lib = {
     ')' => '(', 
@@ -79,5 +79,4 @@ def balancedParens(work)
   return true
 end
 
-
-balancedParens('(())')
+balancedParens(' toot  = { 1395861439587: how? are you() }')
