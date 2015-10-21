@@ -109,7 +109,7 @@ linkedList.prototype.delete = function(location){
     this.listLength--;
     return;
   }
-  
+
   var work = this.head;
   var counter = 0;
   while (work !== null){
@@ -143,14 +143,18 @@ linkedList.prototype.contains = function(value){
 }
 
 
+
+
+
+
+
+
 var test = new linkedList();
 
 test.append('hello');
 test.append('bye');
 test.append('toodle');
 test.append('great');
-
-console.log(test.contains('toodle'));
 
 
 console.log("HEAD: ", JSON.stringify(test.head));
