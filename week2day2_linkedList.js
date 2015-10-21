@@ -64,13 +64,8 @@ linkedList.prototype.append = function(value){
     this.head = new listNode(value);
     this.tail = this.head;
     this.listLength++;
-  } else if (this.head === this.tail){
-    // adding a value to a linkedList that has only one item
-    this.head.next = new listNode(value);
-    this.tail = this.head.next;
-    this.listLength++;
   } else {
-    // adding a value to a linkedLIst of two or more items
+    // adding a value to a linkedList of one or more items
     this.tail.next = new listNode(value);
     this.tail = this.tail.next;
     this.listLength++;
@@ -100,30 +95,32 @@ linkedList.prototype.insert = function(insertValue, searchValue){
 }
 
 linkedList.prototype.delete = function(location){
-  var work = this.head;
-  var counter = 0;
 
   if (location === 0 && this.head !== null && this.head === this.tail){
     // case when linkedList consists of a single element
     this.head = null;
     this.tail = null;
     this.listLength--;
+    return;
   } else if (location === 0 && this.head !== null && this.head.next !== null){
     // case when linkedList has more than one element, but 
     // zeroth element is being removed
     this.head = this.head.next;
     this.listLength--;
+    return;
   }
+  
+  var work = this.head;
+  var counter = 0;
   while (work !== null){
-
-    console.log("CHECK1: ", work.next);
-    console.log("CHECK2: ", this.tail);
     if (counter === (location-1) && work.next !== null && work.next === this.tail){
+      // case when removing the last element of linkedList
       work.next = work.next.next;
       this.tail = work;
       this.listLength--;
       return;
     } else if (counter === (location-1) && work.next !== null){
+      // case when removing values that are not the head or tail
       work.next = work.next.next;
       this.listLength--;
       return;
@@ -131,10 +128,18 @@ linkedList.prototype.delete = function(location){
     counter++;
     work = work.next
   }
+  console.log('Error: Index ' + "'" + location + "'" + ' falls out of the range of the length of the linkedList');
 }
 
-linkedList.prototype.contains = function(){
-  
+linkedList.prototype.contains = function(value){
+  var work = this.head;
+  while (work !== null){
+    if (work.value === value){
+      return true;
+    }
+    work = work.next;
+  }
+  return false;
 }
 
 
@@ -143,11 +148,11 @@ var test = new linkedList();
 test.append('hello');
 test.append('bye');
 test.append('toodle');
-// test.append('great');
+test.append('great');
 
-test.delete(2);
+console.log(test.contains('toodle'));
 
 
-console.log(JSON.stringify(test.head));
-console.log(test.tail);
+console.log("HEAD: ", JSON.stringify(test.head));
+console.log("TAIL: ", test.tail);
 console.log(test.listLength);
