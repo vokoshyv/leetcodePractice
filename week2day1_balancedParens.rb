@@ -46,6 +46,8 @@
 
 def balancedParens(work)
   check = []
+  work = work.split('')
+  
   forward_lib = {
     '(' => true, 
     '{' => true,  
@@ -57,7 +59,6 @@ def balancedParens(work)
     '}' => '{'
   }
 
-  work = work.split('')
 
   work.each do |element|
 
