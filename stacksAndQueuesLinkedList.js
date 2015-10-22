@@ -121,16 +121,18 @@ linkedList.prototype.delete = function(location){
 
   if (location === 0 && this.head !== null && this.head === this.tail){
     // case when linkedList consists of a single element
+    var reference = this.head;
     this.head = null;
     this.tail = null;
     this.listLength--;
-    return;
+    return reference.value;
   } else if (location === 0 && this.head !== null && this.head.next !== null){
     // case when linkedList has more than one element, but 
     // zeroth element is being removed
+    var reference = this.head;
     this.head = this.head.next;
     this.listLength--;
-    return;
+    return reference.value;
   }
 
   var work = this.head;
@@ -138,15 +140,17 @@ linkedList.prototype.delete = function(location){
   while (work !== null){
     if (counter === (location-1) && work.next !== null && work.next === this.tail){
       // case when removing the last element of linkedList
+      var reference = work.next;
       work.next = work.next.next;
       this.tail = work;
       this.listLength--;
-      return;
+      return reference.value;
     } else if (counter === (location-1) && work.next !== null){
       // case when removing values that are not the head or tail
+      var reference = work.next;
       work.next = work.next.next;
       this.listLength--;
-      return;
+      return reference.value;
     }
     counter++;
     work = work.next
@@ -168,18 +172,121 @@ linkedList.prototype.contains = function(value){
 
 
 
-
-
-
-
 // var test = new linkedList();
 
 // test.append('hello');
-// test.append('bye');
-// test.append('toodle');
+// test.append('blah');
 // test.append('great');
 
+// console.log(JSON.stringify(test.head));
+// console.log(test.delete(0));
+// console.log(JSON.stringify(test.head));
 
-// console.log("HEAD: ", JSON.stringify(test.head));
-// console.log("TAIL: ", test.tail);
-// console.log(test.listLength);
+
+/*********************************************************************** 
+ *                       Pair Programming III                          *
+ *                                                                     *
+ *  Instructions: Solve the following problems in the preferred        *
+ *                language of your group. Find the time and auxilliary *
+ *                complexity of your solution.                         *
+ *                                                                     *
+ ***********************************************************************/
+
+/**
+ *  Problem 1: Queue w/ Linked List
+ * 
+ *  Prompt: Create a Queue class/constructor using a Linked List as your storage.
+ *
+ *          Your Queue class should contain the following properties:
+ *            •Storage: A singly Linked List (you may use your HW solution or our provided solution)
+ *            •Enqueue: Method that adds an item to the end of your queue
+ *            •Dequeue: Method that removes and returns the first item of your queue
+ *
+ *          What are the time compexities of enqueue and dequeue?
+ *
+ *  Input: There is no input
+ *  Output: A Queue instance
+ *
+ *  Example:  var queue = new Queue();
+ *            queue.enqueue(1);
+ *            queue.enqueue(3);
+ *            queue.enqueue(3);
+ *            queue.enqueue(7);
+ *            queue.dequeue(); // 1
+ *            queue.dequeue(); // 3
+ **/
+
+
+/**
+ *  Problem 2: Stack w/ Linked List
+ *
+ *  Prompt: Create a Stack class/constructor using a Linked List as your storage.
+ *
+ *          Your Stack class should contain the following properties:
+ *            •Storage: A singly Linked List (you may use your HW solution or our provided solution)
+ *            •Push: Method that adds an item to the top of your stack
+ *            •Pop: Method that removes and returns the top item of your stack
+ *
+ *          What are the time compexities of push and pop?
+ *
+ *  Input: There is no input
+ *  Output: A Stack instance
+ *
+ *  Example:  var stack = new Stack();
+ *            stack.push(1);
+ *            stack.push(3);
+ *            stack.push(3);
+ *            stack.push(7);
+ *            stack.pop(); // 7
+ *            stack.pop(); // 3
+ **/
+
+/**
+ *  Extra Credit: Doubly Linked List
+ *
+ *  Prompt: Refactor the LinkedList to be a DoublyLinkedList
+ *
+ *          Your Node should contain the following addtional property:
+ *            •Previous: Pointer to the previous node
+ *
+ *          Your DoublyLinked should contain the following additional properties:
+ *            •Prepend: Method that adds a node to the head
+ *            •removeTail: Method that removes and return the tail from the DoublyLinkedList
+ *
+ *          What are the time compexities of prepend and removeTail?
+ **/
+
+
+
+var Queue = function(){
+  this.storage = new linkedList();
+}
+
+Queue.prototype.enqueue = function(value){
+  this.storage.append(value);
+}
+
+Queue.prototype.dequeue = function(){
+  return this.storage.delete(0);
+}
+
+
+
+
+
+
+
+
+
+
+var Stack = function(){
+  this.storage = new linkedList();
+}
+
+Stack.prototype.push = function(value){
+  this.storage.append(value);
+}
+
+Stack.prototype.pop = function(){
+  return this.storage.delete(this.storage.listLength-1);
+}
