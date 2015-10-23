@@ -60,14 +60,14 @@ var node = function(value){
 
 
 var binarySearchTree = function(){
-  this.head = null;
+  this.root = null;
   this.size = 0;
 }
 
 binarySearchTree.prototype.insert = function(value){
-  if (this.head === null){
+  if (this.root === null){
     // when the tree is empty
-    this.head = new node(value);
+    this.root = new node(value);
     this.size++;
   } else {
     // when stuff has already been inserted
@@ -88,7 +88,7 @@ binarySearchTree.prototype.insert = function(value){
       }
     }
 
-    findAndInsert(this.head);
+    findAndInsert(this.root);
 
     this.size++;
 
@@ -115,7 +115,7 @@ binarySearchTree.prototype.search = function(target){
     }
   }
 
-  traverse(this.head);
+  traverse(this.root);
   return check;
 }
 
@@ -135,7 +135,7 @@ binarySearchTree.prototype.delete = function(deleteValue){
     roundUp(currentNode.left);
   }
 
-  roundUp(this.head);
+  roundUp(this.root);
 
   if (temp.length === this.size){
     console.log('deleteValue: ' + deleteValue + ' was not found in binary search tree');
@@ -151,8 +151,8 @@ binarySearchTree.prototype.delete = function(deleteValue){
     tempTree.insert(value);
   })
 
-  // reinitialize the head as the tempTree head
-  this.head = tempTree.head;
+  // reinitialize the root as the tempTree root
+  this.root = tempTree.root;
 
   // reduce size of tree
   this.size--;
