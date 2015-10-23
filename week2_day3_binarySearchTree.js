@@ -52,3 +52,122 @@
 
 
 
+var node = function(value){
+  this.value = value;
+  this.right = null;
+  this.left = null;
+}
+
+
+var binarySearchTree = function(){
+  this.head = null;
+  this.size = 0;
+}
+
+binarySearchTree.prototype.insert = function(value){
+  if (this.head === null){
+    // when the tree is empty
+    this.head = new node(value);
+    this.size++;
+  } else {
+    // when stuff has already been inserted
+    var findAndInsert = function(currentNode){
+
+      if (value > currentNode.value){
+        if (currentNode.right === null){
+          currentNode.right = new node(value);
+        } else {
+          findAndInsert(currentNode.right);
+        }
+      } else if (value < currentNode.value){
+        if (currentNode.left === null){
+          currentNode.left = new node(value);
+        } else {
+          findAndInsert(currentNode.left);
+        }
+      }
+    }
+
+    findAndInsert(this.head);
+
+    this.size++;
+
+  }
+}
+
+binarySearchTree.prototype.search = function(target){
+  var check = false;
+
+  var traverse = function(currentNode){
+    if (check){
+      return;
+    } else if (currentNode === null){
+      return;
+    } else if (currentNode.value === target){
+      check = true;
+      return;
+    }
+
+    if (target > currentNode.value){
+      traverse(currentNode.right);
+    } else if (target < currentNode.value){
+      traverse(currentNode.left);
+    }
+  }
+
+  traverse(this.head);
+  return check;
+}
+
+binarySearchTree.prototype.delete = function(deleteValue){
+  var temp = [];
+
+  var roundUp = function(currentNode){
+    if (currentNode === null){
+      return;
+    } else {
+      if (currentNode.value !== deleteValue){
+        temp.push(currentNode.value);
+      }
+    }
+
+    roundUp(currentNode.right);
+    roundUp(currentNode.left);
+  }
+
+  roundUp(this.head);
+
+  if (temp.length === this.size){
+    console.log('deleteValue: ' + deleteValue + ' was not found in binary search tree');
+    return;
+  }
+
+  // create temporary tree
+  var tempTree = new binarySearchTree();
+
+  // iterate through all of the found values that weren't the target
+  // and insert them into the new tree
+  temp.forEach(function(value){
+    tempTree.insert(value);
+  })
+
+  // reinitialize the head as the tempTree head
+  this.head = tempTree.head;
+
+  // reduce size of tree
+  this.size--;
+  
+  console.log(deleteValue + ' has been deleted from the tree');
+}
+
+var test = new binarySearchTree();
+
+test.insert(5);
+test.insert(3);
+test.insert(8);
+test.insert(1);
+test.insert(2);
+test.insert(4);
+test.insert(10);
+
+test.delete(3);
