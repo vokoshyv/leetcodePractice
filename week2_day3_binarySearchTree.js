@@ -160,14 +160,13 @@ binarySearchTree.prototype.delete = function(deleteValue){
   console.log(deleteValue + ' has been deleted from the tree');
 }
 
-var test = new binarySearchTree();
+// var test = new binarySearchTree();
 
-test.insert(5);
-test.insert(3);
-test.insert(8);
-test.insert(1);
-test.insert(2);
-test.insert(4);
-test.insert(10);
-
-test.delete(3);
+// test.insert(5);
+// test.insert(3);
+// test.insert(8);
+// test.insert(1);
+// test.insert(2);
+// test.insert(4);
+// test.insert(10);
+// test.delete(3);
