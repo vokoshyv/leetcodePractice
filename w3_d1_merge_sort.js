@@ -42,7 +42,7 @@ var mergeSort = function(input){
 
   while (work.length !== 1){
     var pointer = 0;
-    sorted = [];
+    var sorted = [];
 
     while (pointer < work.length){
       if (work[pointer+1] !== undefined){

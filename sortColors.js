@@ -7,7 +7,9 @@ var sortColors = function(nums) {
   var endPointer = nums.length-1;
 
   while (startPointer < endPointer){
-    
+    if (nums[startPointer] === 0){
+      
+    }
   }
 
 
