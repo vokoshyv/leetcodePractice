@@ -1,3 +1,5 @@
+// https://repl.it/BX3Z
+
 // Given a matrix of random numbers, find the sum of any 
 // selected quadrant in constant time. 
 
@@ -125,5 +127,7 @@ paintFile.prototype.getSumOfRegion = function(topLeft, bottomRight){
 }
 
 var blah = new paintFile(testInput);
+
+console.log(blah);
 
 blah.getSumOfRegion([0, 0], [5, 7]);
