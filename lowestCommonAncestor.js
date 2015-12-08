@@ -44,9 +44,6 @@ var lowestCommonAncestor = function(root, p, q) {
 
   traverseP(root);
   traverseQ(root);
-  console.log("PPATH: ", pPath);
-  console.log("QPATH: ", qPath);
-
 
   var longer = Math.max(pPath.length, qPath.length);
 
