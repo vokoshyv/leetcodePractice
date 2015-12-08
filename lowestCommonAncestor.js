@@ -16,34 +16,21 @@ var lowestCommonAncestor = function(root, p, q) {
   var pPath = [];
   var qPath = [];
 
-  var traverseP = function(work){
-    if (work === null){
-      return;
-    } else {
-      pPath.push(work.val);
-      if (p.val > work.val){
-        traverseP(work.right);
-      } else if (p.val < work.val){
-        traverseP(work.left);
+  var traverse = function(work, build, target){
+    while (work !== null){
+      build.push(work.val);
+      if (target.val < work.val){
+        work = work.left;
+      } else if (target.val > work.val){
+        work = work.right;
+      } else if (target.val === work.val){
+        break;
       }
     }
   }
 
-  var traverseQ = function(work){
-    if (work === null){
-      return;
-    } else {
-      qPath.push(work.val);
-      if (q.val > work.val){
-        traverseQ(work.right);
-      } else if (q.val < work.val){
-        traverseQ(work.left);
-      }
-    }
-  }
-
-  traverseP(root);
-  traverseQ(root);
+  traverse(root, pPath, p);
+  traverse(root, qPath, q);
 
   var longer = Math.max(pPath.length, qPath.length);
 
