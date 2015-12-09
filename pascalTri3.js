@@ -4,14 +4,17 @@
  */
 var getRow = function(rowIndex) {
   var work = [1];
+  var temp;
 
   while (rowIndex--){
-    var temp = [1];
-    work.forEach(function(item){
-      temp.push(item + temp[temp.length-1]);
-    })
+    temp = [1];
+
+    for (var i = 0; i < work.length-1; i++){
+      temp.push(work[i] + work[i+1]);
+    }
+
     temp.push(1);
     work = temp;
   }
-  console.log(work);
+  return work;
 };
