@@ -63,7 +63,9 @@ var acquireJSON = function(){
 
   var runWith = [1, 2, 3, 4];
 
-  var run = setInterval(function(){
+  var run = setInterval(mine, 1000);
+
+  var mine = function(){
     runWith[0] += 4;
     runWith[1] += 4;
     runWith[2] += 4;
@@ -79,7 +81,11 @@ var acquireJSON = function(){
         results.push(response.body);
       })
     }
-  }, 1000)
+    if (runWith[0] > 100){
+      clearInterval(run);
+    }
+  }
 
-
+  mine(); 
+  
 }
