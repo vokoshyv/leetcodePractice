@@ -73,3 +73,7 @@ var eggDropTens = function(safe){
   return ((safe+1) % 10 === 0)? counter-1 : counter;
 }
 
+
+var eggDropEff = function(safe){
+  
+}
