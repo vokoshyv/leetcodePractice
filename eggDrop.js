@@ -50,7 +50,8 @@ var eggDrop = function(safeHeight){
 
 
 
-
+// max number of egg drops necessary to find worse-case
+// scenario is 19 drops for a safe height of 99 stories
 var eggDropTens = function(safe){
   var counter = 0;
   var height = 0;
@@ -74,6 +75,35 @@ var eggDropTens = function(safe){
 }
 
 
+
+
 var eggDropEff = function(safe){
+  var counter = 0;
+  var steps = 15;
+  var height = 0;
+
+  while (height <= safe){
+    height += steps; 
+    counter++;
+    steps--;
+  }
   
+  steps++;
+  height -= (steps-1);
+
+  while (height <= safe+1){
+    counter++;
+    height += 1;
+  }
+
+//   console.log("COUNTER: ", counter);
+//   console.log("HEIGHT: ", height);
+//   console.log("steps: ", steps);
+
+  return (height === safe-1)? counter-1 : counter;
+}
+
+
+for (var i = 0; i < 101; i++){
+  console.log("Safe Height: ", i, "Attempts Necessary: ", eggDropEff(i));
 }
