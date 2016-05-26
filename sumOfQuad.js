@@ -68,7 +68,7 @@ paintFile.prototype.getSumOfRegion = function(topLeft, bottomRight){
 // ANSWER: 
 
 // paintFile class for constant-time region sums
-var paintFile = function(matrix){
+var PaintFile = function(matrix){
   this.storage = [];
   this.storage.push([]);
 
@@ -96,7 +96,7 @@ var paintFile = function(matrix){
 
 // format of topLeft: [y-coor, x-coor]
 // format of bottomRight: [y-coor, y-coor]
-paintFile.prototype.getSumOfRegion = function(topLeft, bottomRight){
+PaintFile.prototype.getSumOfRegion = function(topLeft, bottomRight){
 
   if (topLeft[0] === 0 && topLeft[1] === 0){
     // topLeft corner is at the most top and left point of matrix
@@ -128,7 +128,7 @@ var testInput = [
 ];
 
 
-var blah = new paintFile(testInput);
+var blah = new PaintFile(testInput);
 
 console.log(blah)
 
