@@ -12,5 +12,20 @@
  * @return {number[]}
  */
 var productExceptSelf = function(arr) {
-  
+  var work = Array(arr.length);
+
+  work[arr.length-1] = 1;
+
+  for (var i = arr.length-2; i > -1; i--){
+    work[i] = work[i+1] * arr[i+1];
+  }
+
+  var left = 1;
+
+  for (var i = 0; i < arr.length; i++){
+    work[i] = work[i] * left;
+    left = left * arr[i];
+  }
+
+  return work;
 };
