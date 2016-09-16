@@ -25,6 +25,5 @@ var findTheDifference = function(s, t) {
   }
 };
 
-console.log(findTheDifference('banana', 'baaatnn'));
 
 
