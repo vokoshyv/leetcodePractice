@@ -58,17 +58,17 @@ var minDepth = function(root) {
   while (queue.size > 0){
     currentNode = queue.dequeue();
 
-    if (currentNode.left === null && currentNode.right === null){
-      return currentNode.depth;
+    if (currentNode.value.left === null && currentNode.value.right === null){
+      return currentNode.value.depth;
     } 
 
-    if (currentNode.left !== null){
-      currentNode.left.depth = currentNode.depth + 1;
-      queue.enqueue(currentNode.left);
+    if (currentNode.value.left !== null){
+      currentNode.value.left.depth = currentNode.value.depth + 1;
+      queue.enqueue(currentNode.value.left);
     }
-    if (currentNode.right !== null){
-      currentNode.right.depth = currentNode.depth + 1;
-      queue.enqueue(currentNode.right);
+    if (currentNode.value.right !== null){
+      currentNode.value.right.depth = currentNode.value.depth + 1;
+      queue.enqueue(currentNode.value.right);
     }
   }
 };
