@@ -19,7 +19,7 @@ var preorderTraversal = function(root) {
 
   stack.push(root);
   var currentNode;
-
+  
   while (stack.length > 0){
     currentNode = stack.pop();
     if (currentNode.right !== null){
