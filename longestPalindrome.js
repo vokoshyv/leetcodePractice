@@ -3,27 +3,19 @@
  * @return {number}
  */
 var longestPalindrome = function(s) {
-  var maxLength = 0;
-  if (s.length % 2 === 0){
-    for (var i = 0; i < s.length; i++){
-      var j = i;
-      var k = i - 1;
-      while (k > -1 && s[j] === s[k]){
-        maxLength = Math.max(maxLength, j - k + 1);
-        j++;
-        k--;
-      }
+  var count = 0;
+  var lib = {};
+  s.split('').forEach(function(letter){
+    if (lib[letter] === undefined){
+      lib[letter] = true;
+    } else {
+      delete lib[letter];
+      count += 2;
     }
-  } else {
-    for (var i = 0; i < s.length; i++){
-      var j = i;
-      var k = i;
-      while (k > -1 && s[j] === s[i]){
-        maxLength = Math.max(maxLength, j - k + 1);
-        j++;
-        k--;
-      }
-    }
-  } 
-  return maxLength;
+  });
+  var oddMax = 0;
+  for (var key in lib){
+    oddMax = Math.max(oddMax, lib[key]);
+  }
+  return count + oddMax;
 };
