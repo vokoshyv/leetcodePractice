@@ -10,5 +10,14 @@
  * @return {number[]}
  */
 var inorderTraversal = function(root) {
-    
+  var stack = [];
+  stack.push(root);
+
+  var i = 0;
+  var cNode;
+
+  while (i < stack.length){
+    cNode = stack[i];
+
+  }
 };
