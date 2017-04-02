@@ -10,5 +10,5 @@
  * @return {void} Do not return anything, modify root in-place instead.
  */
 var recoverTree = function(root) {
-    
+  
 };
