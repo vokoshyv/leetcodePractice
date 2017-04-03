@@ -3,10 +3,13 @@
  * @return {number}
  */
 var removeDuplicates = function(nums) {
-  var lag = 0;
+  if (nums.length < 2){
+    return nums.length;
+  }
+  var lag = 1;
   var temp;
-  for (var i = 0; i < nums.length - 1; i++){
-    if (nums[i] !== nums[i + 1]){
+  for (var i = 1; i < nums.length; i++){
+    if (nums[i] !== nums[i - 1]){
       nums[lag] = nums[i];
       lag++;
     }
@@ -15,4 +18,5 @@ var removeDuplicates = function(nums) {
   return lag;
 };
 
-console.log(removeDuplicates([1,1,2]));
+
+// console.log(removeDuplicates([1,1,2]));
