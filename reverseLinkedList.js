@@ -10,15 +10,17 @@
  * @return {ListNode}
  */
 var reverseList = function(head) {
-  var buildUp = null;
-  var ref;
+  var current = head;
+  var previous = null;
+  var temp;
 
-  var goOutAndReturn = function(cNode){
-    if (cNode === null){
-      return;
-    }
-
-    goOutAndReturn(cNode.next);
-    
+  while (current !== null){
+    temp = current.next;
+    current.next = previous;
+    previous = current;
+    current = temp;
   }
+  return previous;
 };
+
+
