@@ -17,3 +17,5 @@ var toHex = function(num) {
   return result;
 };
 
+console.log(toHex(235));
+
