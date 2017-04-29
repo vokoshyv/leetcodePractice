@@ -57,7 +57,7 @@ class RobotPaths{
     this.run = setInterval(()=>{
       that.printMatrix(i)
       i++;
-    }, 100);
+    }, 10);
   }
 
   traverse(x, y){
