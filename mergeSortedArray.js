@@ -6,32 +6,35 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 var merge = function(nums1, m, nums2, n) {
-  var work = [];
-  var mPointer = 0;
-  var nPointer = 0;
-  while (mPointer < m || nPointer < n){
+    var endPointer = nums1.length - 1;
 
-    if (mPointer === m){
-      work = work.concat(nums2.slice(nPointer));
-      break;
-    } else if (nPointer === n){
-      work = work.concat(nums1.slice(mPointer));
-      break;
-    } else if (nums1[mPointer] < nums2[nPointer]){
-      work.push(nums1[mPointer]);
-      mPointer++;
-      continue;
-    } else {
-      work.push(nums2[nPointer]);
-      nPointer++;
-      continue;
+    var i = 0;
+    var j = 0;
+
+    while (i < m && j < n){
+      if (nums2[j] < nums1[i]){
+        var temp = nums2[j];
+        nums2[j] = nums1[i];
+        nums1[i] = temp;
+        j++;
+      } else {
+        i++;
+      }
     }
-  }
 
-  nums1 = work;
+    console.log('i: ', i);
+    console.log('j: ', j);
+
+    while (j < n){
+      nums1[i] = nums2[j];
+      i++;
+      j++;
+    }
+
+    return nums1;
 };
 
+console.log(merge([4,5,6,0,0,0], 3, [1,2,3], 3));
 
 
 
-merge([0], 0, [1], 1);

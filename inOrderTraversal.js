@@ -12,12 +12,23 @@
 var inorderTraversal = function(root) {
   var stack = [];
   stack.push(root);
+  var result = [];
+  var current;
 
-  var i = 0;
-  var cNode;
+  while (stack.length > 0){
+    current = stack.pop();
+    
+    while (current.left !== null){
+      stack.push(current);
+      current = current.left
+    }
 
-  while (i < stack.length){
-    cNode = stack[i];
+    result.push(current.value);
 
+    if (current.right !== null){
+      stack.push(current.right);
+    }
   }
+
+  return result;
 };

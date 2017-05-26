@@ -46,6 +46,7 @@ function islands(matrix){
 }
 
 console.log(islands(test));
+console.log('hello!');
 
 
 
