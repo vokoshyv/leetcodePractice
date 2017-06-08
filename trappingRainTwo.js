@@ -58,29 +58,33 @@ var trapRainWater = function(heightMap) {
     }
   }
 
-  var minBarriers = new Array(heightMap.length).fill(new Array(heightMap[0].length));
-  minBarriers = minBarriers.map((row)=>{
+  var minBarrier = new Array(heightMap.length).fill(new Array(heightMap[0].length));
+  minBarrier = minBarrier.map((row)=>{
     return row.slice();
   })
 
   for (var y = 0; y < heightMap.length; y++){
     for (var x = 0; x < heightMap[0].length; x++){
-      minBarriers[y][x] = Math.min(north[y][x],south[y][x],east[y][x],west[y][x])
+      minBarrier[y][x] = Math.min(north[y][x],south[y][x],east[y][x],west[y][x])
     }
   }
 
-  console.log(minBarriers);
+  console.log(minBarrier);
   
   function findActualBarrier(x, y){
     if (x === 0 || y === 0 || x === heightMap[0].length - 1 || y === heightMap.length - 1){
       return 0;
     }
+    if (minBarrier){
+
+    }
+
   }
 
   var count = 0;
   for (var y = 0; y < heightMap.length; y++){
     for (var x = 0; x < heightMap[0].length; x++){
-      count += Math.max(minBarriers[y][x] - heightMap[y][x], 0);
+      count += Math.max(minBarrier[y][x] - heightMap[y][x], 0);
     }
   }
 
@@ -91,8 +95,8 @@ var trapRainWater = function(heightMap) {
 console.log(trapRainWater([[12,13,1,12],
                            [13,4,13,12],
                            [13,8,10,12],
-                           [12,13,12,12],
-                           [13,13,13,13]]))
+                           [12,13,10,12],
+                           [13,13,10,13]]))
 
 
 
