@@ -1,21 +1,26 @@
 /**
  * @param {string} s
- * @return {number}
+ * @return {string}
  */
 var longestPalindrome = function(s) {
-  var count = 0;
-  var lib = {};
-  s.split('').forEach(function(letter){
-    if (lib[letter] === undefined){
-      lib[letter] = true;
-    } else {
-      delete lib[letter];
-      count += 2;
+  var result = '';
+
+  function check(start, end){
+    while (start > -1 && end < s.length && s[start] === s[end]){
+      if (end - start + 1 > result.length){
+        result = s.slice(start, end + 1);
+      }
+      start--;
+      end++;
     }
-  });
-  var oddMax = 0;
-  for (var key in lib){
-    oddMax = Math.max(oddMax, lib[key]);
   }
-  return count + oddMax;
+
+  for (var i = 0; i < s.length; i++){
+    check(i, i);
+    check(i, i+1);
+  }
+
+  return result;
 };
+
+console.log(longestPalindrome('cbbd'));
