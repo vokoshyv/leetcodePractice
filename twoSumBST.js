@@ -11,7 +11,7 @@
  * @return {boolean}
  */
 var findTarget = function(root, k) {
-  let work = {};
+  let work = new Set();
 
   let stack = [];
   stack.push(root);
@@ -26,11 +26,11 @@ var findTarget = function(root, k) {
       stack.push(current.right);
     }
 
-    if (work[k - current.val] !== undefined){
+    if (work.has(k - current.val)){
       return true;
     }
 
-    work[current.val] = true;
+    work.add(current.val)
   }
   return false;
 };
