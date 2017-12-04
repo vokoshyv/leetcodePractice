@@ -1,4 +1,4 @@
-/* 
+/*
 * @Author: humanityloaner
 * @Date:   2015-09-03 16:45:24
 * @Last Modified by:   humanityloaner
@@ -14,3 +14,6 @@
 var addDigits = function(num) {
   return (num - 9) * Math.floor((num-1)/9);
 };
+
+
+console.log('hello');
