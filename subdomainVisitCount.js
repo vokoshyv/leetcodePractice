@@ -39,6 +39,3 @@ var subdomainVisits = function(cpdomains) {
   }
   return result;
 };
-
-
-console.log(subdomainVisits(["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]));
