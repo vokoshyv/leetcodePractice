@@ -4,5 +4,5 @@
  * @return {boolean}
  */
 var isScramble = function(s1, s2) {
-    
+
 };
