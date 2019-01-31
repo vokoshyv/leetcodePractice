@@ -3,5 +3,5 @@
  * @return {number}
  */
 var majorityElement = function(nums) {
-    
+  console.log('hello');    
 };
