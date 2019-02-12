@@ -80,8 +80,8 @@ At myself, I either have coins, or I have 1, or I have none
 4 coins excess
 3 coins excess
 
--1
--2
+
+
 
 
 
