@@ -1,6 +1,6 @@
-let test = [[1, 0, 0],
-            [1, 0, 0],
-            [1, 9, 0]];
+let test = [[1, 1, 1],
+            [0, 0, 1],
+            [0, 2, 1]];
 
 
 function ratPath(matrix) {
@@ -18,10 +18,10 @@ function ratPath(matrix) {
     if (visited.has(key)) {
       return;
     }
-    if (matrix[y][x] === 9) {
-      // path.push([x, y]);
+    if (matrix[y][x] === 2) {
+      path.push([x, y]);
       result = path.slice();
-      // path.pop();
+      path.pop();
       return;
     }
 
