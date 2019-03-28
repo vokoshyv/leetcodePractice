@@ -7,7 +7,7 @@ var exist = function(board, word) {
   let visited = new Set();
   let wordFound = false;
 
-  function traverse(x, y, index) {
+  function search(x, y, index) {
     if (index === word.length) {
       wordFound = true;
       return;
@@ -27,17 +27,17 @@ var exist = function(board, word) {
     }
 
     visited.add(key);
-    traverse(x + 1, y, index + 1);
-    traverse(x - 1, y, index + 1);
-    traverse(x, y + 1, index + 1);
-    traverse(x, y - 1, index + 1);
+    search(x + 1, y, index + 1);
+    search(x - 1, y, index + 1);
+    search(x, y + 1, index + 1);
+    search(x, y - 1, index + 1);
     visited.delete(key);
   }
 
 
   for (let y = 0; y < board.length; y++) {
     for (let x = 0; x < board[0].length; x++) {
-      traverse(x, y, 0);
+      search(x, y, 0);
     }
   }
 
