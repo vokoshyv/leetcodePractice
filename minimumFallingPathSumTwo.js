@@ -7,7 +7,7 @@ var minFallingPathSum = function(arr) {
   const sortedArrs = [];
 
   for (let item of arr) {
-    sortedArrs.push(item.sort((a, b) => {return a - b;}));
+    sortedArrs.push(item.slice().sort((a, b) => {return a - b;}));
   }
 
   console.log("SORTED ARRS: ", sortedArrs);
@@ -53,4 +53,5 @@ var minFallingPathSum = function(arr) {
 };
 
 
-console.log(minFallingPathSum([[1,2,3],[4,5,6],[7,8,9]]));
+// console.log(minFallingPathSum([[1,2,3],[4,5,6],[7,8,9]]));
+console.log(minFallingPathSum([[2,2,1,2,2],[2,2,1,2,2],[2,2,1,2,2],[2,2,1,2,2],[2,2,1,2,2]]));
