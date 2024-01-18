@@ -5,6 +5,8 @@
 
 /*
 
+https://leetcode.com/problems/count-substrings-without-repeating-character/description/
+
 - Hunting phase
     - right pointer moves forward as long as we have not encountered duplicates
 - Catchup phase
