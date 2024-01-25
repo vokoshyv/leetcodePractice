@@ -12,27 +12,50 @@
  */
 var splitListToParts = function(head, k) {
     const result = new Array(k).fill(null);
-    const lastNodes = new Array(k).fill(null);
-
     let current = head;
-    let i = 0;
+    let listLength = 0;
+
 
     while (current !== null) {
-        let arrayI = i % k;
+        listLength++;
+        current = current.next;
+    }
 
-        if (result[arrayI] !== null) {
-            let lastNode = lastNodes[arrayI];
-            lastNode.next = current;
-            lastNodes[arrayI] = current;
-        } else {
-            result[arrayI] = current;
-            lastNodes[arrayI] = current;
+    let modulo = listLength % k;
+    current = head;
+    let j = 0;
+
+    while (modulo > 0) {
+        let i = 0;
+        result[j] = current;
+        let ref;
+        while (i < (k + 1) && current !== null) {
+            i++;
+            ref = current;
+            current = current.next;
         }
 
-        i++;
-        let ref = current;
-        current = current.next;
-        ref.next = null;
+        if (ref !== undefined) {
+            ref.next = null;
+        }
+        j++;
+        modulo--;
+    }
+
+    while (current !== null) {
+        let i = 0;
+        result[j] = current;
+        let ref;
+        while (i < k && current !== null) {
+            i++;
+            ref = current;
+            current = current.next;
+        }
+
+        if (ref !== undefined) {
+            ref.next = null;
+        }
+        j++;
     }
 
     return result;
