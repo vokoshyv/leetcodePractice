@@ -22,40 +22,36 @@ var splitListToParts = function(head, k) {
     }
 
     let modulo = listLength % k;
+    let times = Math.floor(listLength / k); 
     current = head;
     let j = 0;
 
     while (modulo > 0) {
         let i = 0;
-        result[j] = current;
         let ref;
-        while (i < (k + 1) && current !== null) {
-            i++;
+        result[j] = current;
+        while (i < times + 1) {
             ref = current;
             current = current.next;
+            i++;
         }
-
-        if (ref !== undefined) {
-            ref.next = null;
-        }
+        ref.next = null;
         j++;
         modulo--;
     }
 
     while (current !== null) {
         let i = 0;
-        result[j] = current;
         let ref;
-        while (i < k && current !== null) {
-            i++;
+        result[j] = current;
+        while (i < times) {
             ref = current;
             current = current.next;
+            i++;
         }
-
-        if (ref !== undefined) {
-            ref.next = null;
-        }
+        ref.next = null;
         j++;
+        modulo--;
     }
 
     return result;
