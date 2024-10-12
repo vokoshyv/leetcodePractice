@@ -35,6 +35,44 @@ class Graph {
     }
 }
 
+class Node {
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+
+class MyQueue {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.size = 0;
+    }
+
+    enqueue(val) {
+        if (this.head === null) {
+            this.head = this.tail = new Node(val);
+        } else {
+            this.tail.next = new Node(val);
+            this.tail = this.tail.next;
+        }
+        this.size++;
+    }
+
+    dequeue() {
+        let toRemove = this.head;
+        this.head = this.head.next;
+
+        if (this.head === null) {
+            this.tail = null;
+        }
+
+        this.size--;
+
+        return toRemove.val;
+    }
+}
+
 
 var minReorder = function(n, connections) {
     const existingRoads = new Set();
@@ -53,19 +91,19 @@ var minReorder = function(n, connections) {
 
     let counter = 0;
     let current, edges;
-    let queue = [];
+    let queue = new MyQueue();
     let visited = new Set();
 
-    queue.push(0);
+    queue.enqueue(0);
     visited.add(0);
 
-    while (queue.length > 0) {
-        current = queue.shift();
+    while (queue.size > 0) {
+        current = queue.dequeue();
         edges = graph.getEdges(current);
 
         for (let edge of edges) {
             if (!visited.has(edge)) {
-                queue.push(edge);
+                queue.enqueue(edge);
                 visited.add(edge);
                 if (existingRoads.has(`${current}_${edge}`)) {
                     counter++;
