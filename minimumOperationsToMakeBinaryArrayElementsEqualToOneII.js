@@ -7,33 +7,10 @@ var minOperations = function (nums) {
     let count = 0;
 
     for (let item of nums) {
-
-        if (flipped && item) {
-            flipped = false;
-            count++;
-        } else if (!flipped && !item) {
-            flipped = true;
+        if (!(flipped ^ item)) {
+            flipped = !flipped;
             count++;
         }
-
-
-
-        // if (flipped) {
-        //     if (item) {
-        //         flipped = false;
-        //         count++;
-        //     }
-        // } else {
-        //     // not flipped 
-        //     if (item) {
-        //         // is a 1
-        //         // do nothing
-        //     } else {
-        //         // is a 0
-        //         flipped = true;
-        //         count++;
-        //     }
-        // }
     }
 
     return count;
