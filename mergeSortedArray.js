@@ -17,8 +17,6 @@ var merge = function (nums1, m, nums2, n) {
         shiftI--;
     }
 
-    console.log("NUMS1: ", nums1);
-    
     i = n;
     let k = 0;
     
@@ -44,14 +42,11 @@ var merge = function (nums1, m, nums2, n) {
         j++;
         k++;
     }
-    
-    // console.log("NUMS1: ", nums1);
-    // console.log("NUMS2: ", nums2);
 };
 
-console.log(merge([1,2,3,0,0,0], 3, [2,5,6], 3));
+// console.log(merge([1,2,3,0,0,0], 3, [2,5,6], 3));
 
-console.log(merge([2,3,6,0,0,0], 3, [1,3,7], 3));
+// console.log(merge([2,3,6,0,0,0], 3, [1,3,7], 3));
 
 
 /*
