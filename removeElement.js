@@ -21,8 +21,15 @@ var removeElement = function(nums, val) {
         }
     }
 
-    nums = nums.slice(0, i);
-    console.log("NUMS: ", nums);
+    if (i === j) {
+        if (nums[0] === val) {
+            return 0;
+        }
+    }
+    // nums = nums.slice(0, i);
+
+    let k = 0;
+    // console.log("NUMS: ", nums);
     // console.log("I: ", i);
     // console.log("J: ", j);
     return i + 1;
@@ -31,4 +38,4 @@ var removeElement = function(nums, val) {
 // console.log(removeElement([3,2,2,3], 3));
 // console.log(removeElement([0,1,2,2,3,0,4,2], 2));
 // console.log(removeElement([2], 3));
-console.log(removeElement([1], 1));
+// console.log(removeElement([1], 1));
