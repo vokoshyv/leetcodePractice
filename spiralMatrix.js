@@ -37,9 +37,6 @@ var spiralOrder = function(matrix) {
     }
 
     while (x >= xMin && x <= xMax && y >= yMin && y <= yMax) {
-        console.log("X: ", x);
-        console.log("Y: ", y);
-        console.log('hello');
         result.push(matrix[y][x]);
 
         if (canProceed()) {
